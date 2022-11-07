@@ -2,7 +2,7 @@
   "name": "tech-blog-a-tog",
   "version": "1.0.0",
   "description": "Drop a Tog, and Eat some Advice",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,7 +24,9 @@
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
     "mysql2": "^3.0.0-rc.1",
+    "path": "^0.12.7",
     "sequelize": "^6.25.4",
+    "session": "^0.1.0",
     "sqlite3": "^5.1.2"
   }
 }
