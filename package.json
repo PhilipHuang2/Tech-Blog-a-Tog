@@ -1,0 +1,30 @@
+{
+  "name": "tech-blog-a-tog",
+  "version": "1.0.0",
+  "description": "Drop a Tog, and Eat some Advice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PhilipHuang2/Tech-Blog-a-Tog.git"
+  },
+  "author": "Philip Huang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PhilipHuang2/Tech-Blog-a-Tog/issues"
+  },
+  "homepage": "https://github.com/PhilipHuang2/Tech-Blog-a-Tog#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "connect-session-sequelize": "^7.1.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "mysql2": "^3.0.0-rc.1",
+    "sequelize": "^6.25.4",
+    "sqlite3": "^5.1.2"
+  }
+}
