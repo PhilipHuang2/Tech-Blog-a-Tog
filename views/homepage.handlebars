@@ -1,1 +1,16 @@
-This is gonna be the home page
+<h1 class="text-center">5 Most Recent Posts</h1>
+<div class="justify-content-center">
+
+
+{{#each posts as |post|}}
+<div class="card mx-auto my-1" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{post.title}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Posted by {{post.name}} on {{format_date post.post_date}}</h6>
+    <p class="card-text">{{post.content}}</p>
+    <a href="#" class="card-link text-center">View Comments</a>
+  </div>
+</div>
+
+{{/each}}
+</div>

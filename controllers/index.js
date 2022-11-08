@@ -12,9 +12,7 @@ router.get('/', async (req,res) => {
             attributes: ['title', 'content', 'post_date', [Sequelize.col('user.name'), 'name']], 
             include: [
                 {
-                    model: User,  
-                    attributes: ['name']
-
+                    model: User, 
                 }
             ],
     });
@@ -25,7 +23,7 @@ router.get('/', async (req,res) => {
     });
     // console.log(postData);
     console.log(posts);
-    res.render('homepage', {loggedIn: req.session.loggedIn});
+    res.render('homepage', {loggedIn: req.session.loggedIn, posts: posts});
 })
 
 module.exports = router;
