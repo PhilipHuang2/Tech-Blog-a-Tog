@@ -27,7 +27,7 @@ Post.init(
     hooks:{
         async beforeCreate(newPostData){
             let current_date = new Date();
-            newPostData.post_date = current_date.toLocaleDateString();
+            newPostData.post_date = current_date.toLocaleDateString('en-US');
             return newPostData;
         }
     },
