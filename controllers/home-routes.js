@@ -6,7 +6,7 @@ const {Post, User, Comment} = require('../models')
 router.get('/', async (req,res) => {
     const postData = await Post.findAll(
         {
-            attributes: ['title', 'content', 'post_date', [Sequelize.col('user.name'), 'name']], 
+            attributes: ['id','title', 'content', 'post_date', [Sequelize.col('user.name'), 'name']], 
             include: [
                 {
                     model: User, 
@@ -22,6 +22,10 @@ router.get('/', async (req,res) => {
     // console.log(postData);
     console.log(posts);
     res.render('homepage', {loggedIn: req.session.loggedIn, posts: posts});
+})
+
+router.get('/login', async(req,res)=> {
+    res.render('login');
 })
 
 module.exports = router;
