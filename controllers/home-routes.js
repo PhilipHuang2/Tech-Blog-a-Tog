@@ -91,4 +91,13 @@ router.get("/comment/:id", async (req, res) => {
   }
 });
 
+router.get('/newComment/:id', async(req,res)=>{
+    try{
+        if (!req.session.loggedIn) res.redirect("/login");
+        res.render('newComment', {loggedIn: req.session.loggedIn})
+    }catch(err){
+        res.json(err);
+    }
+})
+
 module.exports = router;

@@ -1,6 +1,5 @@
 const newPostHandler = async(event)=>{
     event.preventDefault();
-    console.log("new Post")
     const title = document.querySelector("#inputTitle").value.trim();
     const content = document.querySelector("#inputContent").value.trim(); 
     if(title && content){
