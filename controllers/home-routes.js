@@ -28,4 +28,23 @@ router.get('/login', async(req,res)=> {
     res.render('login');
 })
 
+router.get('/dashboard', async(req,res)=>{
+    if(!req.session.loggedIn)
+        res.redirect('/login')
+    console.log(req.session);
+    const postData = await Post.findAll(
+        {
+            include: [
+                {model:User,
+                    where:{
+                        name: req.session.username
+                    },
+                }
+            ]
+    });
+    const posts = postData.map((element)=> element.get({plain:true}));
+    console.log(posts);
+    res.render('dashboard',{loggedIn: req.session.loggedIn,posts: posts});
+})
+
 module.exports = router;
