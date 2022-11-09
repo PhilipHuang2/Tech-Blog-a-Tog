@@ -29,5 +29,9 @@
     "sequelize": "^6.25.4",
     "session": "^0.1.0",
     "sqlite3": "^5.1.2"
+  },
+  "production":{
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
   }
 }
