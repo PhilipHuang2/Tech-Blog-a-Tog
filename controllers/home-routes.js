@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const session = require('express-session');
 const { Sequelize } = require('sequelize');
 const {Post, User, Comment} = require('../models')
 
@@ -20,7 +21,7 @@ router.get('/', async (req,res) => {
         return element.get({plain:true})
     });
     // console.log(postData);
-    console.log(posts);
+    // console.log(posts);
     res.render('homepage', {loggedIn: req.session.loggedIn, posts: posts});
 })
 
@@ -34,17 +35,17 @@ router.get('/dashboard', async(req,res)=>{
     console.log(req.session);
     const postData = await Post.findAll(
         {
-            include: [
-                {model:User,
-                    where:{
-                        name: req.session.username
-                    },
-                }
-            ]
+            where: {user_id: req.session.username},
     });
     const posts = postData.map((element)=> element.get({plain:true}));
     console.log(posts);
     res.render('dashboard',{loggedIn: req.session.loggedIn,posts: posts});
+})
+
+router.get('/newPost', async(req,res)=>{
+    if(!req.session.loggedIn)
+        res.redirect('/login')
+    res.render('newPost', {loggedIn: req.body.loggedIn, id:req.session.username});
 })
 
 module.exports = router;

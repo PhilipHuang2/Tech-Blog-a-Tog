@@ -7,10 +7,14 @@ router.post("/signup", async (req, res) => {
     const userData = await User.create({
       name: req.body.username,
       password: req.body.password,
+      raw:true
     });
+    console.log(userData.dataValues.id);
+    // const users = userData.map((element)=>element.get({plain:true}))
+    // console.log(users);
     req.session.save(() => {
       req.session.loggedIn = true;
-      req.session.username = req.body.username
+      req.session.username = userData.dataValues.id
 
       res.status(200).json(userData);
     });
@@ -41,7 +45,7 @@ router.post("/login", async (req, res) => {
     }
     req.session.save(() => {
         req.session.loggedIn = true;
-        req.session.username = req.body.username
+        req.session.username = userData.dataValues.id;
         res
           .status(200)
           .json({ user: userData, message: 'You are now logged in!' });
